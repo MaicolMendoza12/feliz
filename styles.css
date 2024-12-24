@@ -1,0 +1,266 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    color: white;
+}
+
+/* Container */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    position: relative;
+}
+
+/* Countdown Styles */
+.countdown {
+    font-size: 3rem;
+    color: #00FF00;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00;
+    background-color: #000;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px rgba(0, 255, 0, 0.8);
+    text-align: center;
+}
+
+/* SVG Trees */
+.tree-svg img {
+    width: 150px;
+    animation: spin 10s linear infinite;
+    transform-origin: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+}
+
+/* Falling Stars Effect */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(white, transparent) 50% 50% / 3px 3px no-repeat;
+    background-size: 3px 3px;
+    animation: falling-stars 2s linear infinite;
+    pointer-events: none;
+}
+
+/* Rain Effect */
+.rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(transparent, rgba(0, 255, 255, 0.5));
+    background-size: 2px 100%;
+    animation: falling-rain 1s linear infinite;
+}
+
+/* Animations */
+@keyframes falling-stars {
+    0% {
+        background-position: 0 -100%;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+@keyframes falling-rain {
+    0% {
+        background-position: 0 -100%;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+@keyframes fall {
+    0% {
+        top: -50px;
+        left: 50%;
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        left: 60%;
+        opacity: 0;
+    }
+}
+
+.star {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 20px yellow;
+    animation: fall 3s linear infinite;
+}
+@keyframes rain {
+    0% {
+        top: -50px;
+        opacity: 0.5;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.rain {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background-color: #00ffcc;
+    top: -50px;
+    left: calc(50% - 2px);
+    animation: rain 2s linear infinite;
+}
+
+.rain-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.rain-container .rain {
+    animation-delay: calc(var(--i) * 0.2s);
+    left: calc(var(--i) * 3%);
+}
+
+@keyframes falling {
+    0% {
+        top: -50px;
+        left: 50%;
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        left: 60%;
+        opacity: 0;
+    }
+}
+
+.falling-star {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 20px white;
+    animation: falling 3s linear infinite;
+}
+
+    /* Efectos de animación para partículas */
+    .star, .snowflake, .spark, .raindrop, .circle, .smoke {
+        position: absolute;
+        background-color: #fff;
+        opacity: 0.8;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: fall 4s ease-out infinite;
+      }
+  
+      /* Efecto de caída para las partículas */
+      @keyframes fall {
+        0% { transform: translateY(-100px); opacity: 1; }
+        100% { transform: translateY(100vh); opacity: 0; }
+      }
+  
+      /* Nieve */
+      .snowflake {
+        width: 8px;
+        height: 8px;
+        animation-duration: 3s;
+      }
+  
+      /* Estrellas */
+      .star {
+        width: 5px;
+        height: 5px;
+        animation-duration: 5s;
+      }
+  
+      /* Chispas */
+      .spark {
+        width: 5px;
+        height: 5px;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+        background-color: #FFD700;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+      }
+  
+      /* Lluvia */
+      .raindrop {
+        width: 2px;
+        height: 10px;
+        background-color: rgba(0, 0, 255, 0.8);
+        animation-duration: 2s;
+        animation-timing-function: linear;
+      }
+  
+      /* Círculos */
+      .circle {
+        width: 10px;
+        height: 10px;
+        background-color: rgba(255, 255, 255, 0.6);
+        animation: circleAnimation 2s infinite;
+      }
+  
+      @keyframes circleAnimation {
+        0% { transform: scale(1); }
+        100% { transform: scale(2); opacity: 0; }
+      }
+  
+      /* Efecto de niebla */
+      .smoke {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.2);
+        animation: smokeAnimation 5s ease-in-out infinite;
+      }
+  
+      @keyframes smokeAnimation {
+        0% { transform: translateY(0); opacity: 0.2; }
+        100% { transform: translateY(-50px); opacity: 0; }
+      }
+  
+      /* Niebla */
+      .fog {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        animation: fogAnimation 5s ease-in-out infinite;
+      }
+  
+      @keyframes fogAnimation {
+        0% { opacity: 0.1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 0.1; }
+      }
+  
